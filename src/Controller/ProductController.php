@@ -244,7 +244,7 @@ class ProductController extends AbstractController
     $product->setQuantity($quantity);
     $type = $request->request->get('type');
     $product->setType($type);
-    if ($type === 'equipement' || $type === 'accessoires') {
+    if ($type === 'Équipement' || $type === 'Accessoires') {
       $product->setSize('');
       $product->setColor('');
     }
@@ -382,7 +382,7 @@ class ProductController extends AbstractController
     $product->setQuantity($quantity);
     $type = $request->request->get('type');
     $product->setType($type);
-    if ($type === 'equipement' || $type === 'accessoires') {
+    if ($type === 'Équipement' || $type === 'Accessoires') {
       $product->setSize('');
       $product->setColor('');
     }

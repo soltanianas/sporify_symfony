@@ -60,7 +60,7 @@ class EventController extends AbstractController
             $file = $form->get("image")->getData();
             $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
             $file->move(
-                $this->getParameter('uploads'),
+                'upload/events/',
                 $fileName
             );
             $event->setImage($fileName);
@@ -98,7 +98,7 @@ class EventController extends AbstractController
             $file = $form->get("image")->getData();
             $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
             $file->move(
-                $this->getParameter('uploads'),
+                'upload/events/',
                 $fileName
             );
             $event->setImage($fileName);
@@ -136,7 +136,7 @@ class EventController extends AbstractController
             $file = $form->get("image")->getData();
             $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
             $file->move(
-                $this->getParameter('uploads'),
+                'upload/events/',
                 $fileName
             );
             $event->setImage($fileName);
@@ -179,7 +179,7 @@ class EventController extends AbstractController
             if (!empty($file)){
                 $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
                 $file->move(
-                    $this->getParameter('uploads'),
+                    'upload/events/',
                     $fileName
                 );
                 $event->setimage($fileName);

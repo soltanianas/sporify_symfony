@@ -313,6 +313,7 @@ class OrderController extends AbstractController
     if (!$this->isAdmin())
       return $this->redirectToRoute('login');
     $order = $this->getDoctrine()->getRepository(Order::class)->find($id);
+    $order->user = $this->getDoctrine()->getRepository(User::class)->find($order->getUserId());
     $products = $this->getAllOrderProduct($order->getId());
     $total_price = 0;
     foreach ($products as $product) {
