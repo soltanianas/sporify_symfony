@@ -57,6 +57,27 @@ class User
      */
     private $phone;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Id_ab;
+
+    /**
+     * @return mixed
+     */
+    public function getIdAb()
+    {
+        return $this->Id_ab;
+    }
+
+    /**
+     * @param mixed $Id_ab
+     */
+    public function setIdAb($Id_ab): void
+    {
+        $this->Id_ab = $Id_ab;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
