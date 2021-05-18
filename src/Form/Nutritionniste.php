@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\CoachRepository;
+use App\Repository\NutritionnisteRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass=CoachRepository::class)
+ * @ORM\Entity(repositoryClass=NutritionnisteRepository::class)
  */
-class Coach
+class Nutritionniste
 {
     /**
      * @ORM\Id
@@ -20,7 +21,7 @@ class Coach
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nom;
+    private $no;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -34,11 +35,16 @@ class Coach
 
     /**
      * @ORM\Column(type="string", length=255)
+     *  @Assert\Email(
+     *     message = "le email '{{ value }}' n'est pas valid email."
+     * )
      */
     private $mail;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer")
+     *  @Assert\Length(min = 8, max = 8, minMessage = "min_lenght", maxMessage = "max_lenght")
+     *
      */
     private $num;
 
@@ -52,14 +58,14 @@ class Coach
         return $this->id;
     }
 
-    public function getNom(): ?string
+    public function getNo(): ?string
     {
-        return $this->nom;
+        return $this->no;
     }
 
-    public function setNom(string $nom): self
+    public function setNo(string $no): self
     {
-        $this->nom = $nom;
+        $this->no = $no;
 
         return $this;
     }
@@ -100,12 +106,12 @@ class Coach
         return $this;
     }
 
-    public function getNum(): ?string
+    public function getNum(): ?int
     {
         return $this->num;
     }
 
-    public function setNum(string $num): self
+    public function setNum(int $num): self
     {
         $this->num = $num;
 
